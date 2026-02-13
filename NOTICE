@@ -1,0 +1,11 @@
+Third-Party Notices
+
+This project includes or is derived from the following open-source projects:
+
+- CoreUI Free React Admin Template
+  License: MIT
+  https://github.com/coreui/coreui-free-react-admin-template
+
+- NestJS TypeScript Starter
+  License: MIT
+  https://github.com/nestjs/nest
