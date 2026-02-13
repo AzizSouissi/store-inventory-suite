@@ -69,10 +69,14 @@ const ProductFormPage = () => {
     setLoading(true)
     setError(null)
     const payload = {
-      ...values,
+      name: values.name,
       barcode: values.barcode?.trim() || null,
+      categoryId: values.categoryId,
       primarySupplierId: values.primarySupplierId,
       price: Number(values.price),
+      unit: values.unit,
+      imageUrl: values.imageUrl || null,
+      notes: values.notes || null,
       lowStockThreshold: Number(values.lowStockThreshold),
     }
 
