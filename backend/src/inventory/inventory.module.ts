@@ -1,32 +1,35 @@
-import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { ProductsController } from './products/products.controller';
-import { ProductsService } from './products/products.service';
-import { CategoriesController } from './categories/categories.controller';
-import { CategoriesService } from './categories/categories.service';
-import { SuppliersController } from './suppliers/suppliers.controller';
-import { SuppliersService } from './suppliers/suppliers.service';
-import { ProductSuppliersController } from './product-suppliers/product-suppliers.controller';
-import { ProductSuppliersService } from './product-suppliers/product-suppliers.service';
-import { Product, ProductSchema } from './schemas/product.schema';
-import { Category, CategorySchema } from './schemas/category.schema';
-import { Supplier, SupplierSchema } from './schemas/supplier.schema';
+import { Module } from "@nestjs/common";
+import { MongooseModule } from "@nestjs/mongoose";
+import { ProductsController } from "./products/products.controller";
+import { ProductsService } from "./products/products.service";
+import { CategoriesController } from "./categories/categories.controller";
+import { CategoriesService } from "./categories/categories.service";
+import { SuppliersController } from "./suppliers/suppliers.controller";
+import { SuppliersService } from "./suppliers/suppliers.service";
+import { ProductSuppliersController } from "./product-suppliers/product-suppliers.controller";
+import { ProductSuppliersService } from "./product-suppliers/product-suppliers.service";
+import { Product, ProductSchema } from "./schemas/product.schema";
+import { Category, CategorySchema } from "./schemas/category.schema";
+import { Supplier, SupplierSchema } from "./schemas/supplier.schema";
 import {
   ProductSupplier,
   ProductSupplierSchema,
-} from './schemas/product-supplier.schema';
+} from "./schemas/product-supplier.schema";
 import {
   ProductSupplierHistory,
   ProductSupplierHistorySchema,
-} from './schemas/product-supplier-history.schema';
+} from "./schemas/product-supplier-history.schema";
 import {
   InventoryBatch,
   InventoryBatchSchema,
-} from './schemas/inventory-batch.schema';
+} from "./schemas/inventory-batch.schema";
 import {
   StockMovement,
   StockMovementSchema,
-} from './schemas/stock-movement.schema';
+} from "./schemas/stock-movement.schema";
+import { Sale, SaleSchema } from "./schemas/sale.schema";
+import { SalesController } from "./sales/sales.controller";
+import { SalesService } from "./sales/sales.service";
 
 @Module({
   imports: [
@@ -41,6 +44,7 @@ import {
       },
       { name: InventoryBatch.name, schema: InventoryBatchSchema },
       { name: StockMovement.name, schema: StockMovementSchema },
+      { name: Sale.name, schema: SaleSchema },
     ]),
   ],
   controllers: [
@@ -48,12 +52,14 @@ import {
     CategoriesController,
     SuppliersController,
     ProductSuppliersController,
+    SalesController,
   ],
   providers: [
     ProductsService,
     CategoriesService,
     SuppliersService,
     ProductSuppliersService,
+    SalesService,
   ],
 })
 export class InventoryModule {}
