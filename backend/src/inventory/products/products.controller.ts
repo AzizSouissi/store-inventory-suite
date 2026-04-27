@@ -13,6 +13,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from "@nestjs/common";
+import { ApiBody, ApiConsumes } from "@nestjs/swagger";
 import { FileInterceptor } from "@nestjs/platform-express";
 import type { Express } from "express";
 import { ProductsService } from "./products.service";
@@ -198,6 +199,19 @@ export class ProductsController {
   }
 
   @Post("import-csv")
+  @ApiConsumes("multipart/form-data")
+  @ApiBody({
+    schema: {
+      type: "object",
+      properties: {
+        file: {
+          type: "string",
+          format: "binary",
+        },
+      },
+      required: ["file"],
+    },
+  })
   @UseInterceptors(FileInterceptor("file"))
   @Roles(Role.ADMIN)
   importCsv(
