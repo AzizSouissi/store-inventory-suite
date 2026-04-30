@@ -1,4 +1,4 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 import {
   IsBoolean,
   IsNotEmpty,
@@ -15,7 +15,10 @@ export class StockAdjustDto {
   @Min(0.001)
   quantity!: number;
 
-  @ApiProperty({ enum: StockMovementReason, example: StockMovementReason.ADJUSTMENT })
+  @ApiProperty({
+    enum: StockMovementReason,
+    example: StockMovementReason.ADJUSTMENT,
+  })
   @IsNotEmpty()
   reason!: StockMovementReason;
 
@@ -23,7 +26,7 @@ export class StockAdjustDto {
   @IsBoolean()
   increase!: boolean;
 
-  @ApiPropertyOptional({ example: 'Damaged packaging' })
+  @ApiPropertyOptional({ example: "Damaged packaging" })
   @IsOptional()
   @MaxLength(1000)
   note?: string | null;

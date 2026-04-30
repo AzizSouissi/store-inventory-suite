@@ -1,8 +1,8 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { ArrayNotEmpty, IsNumber, Max, Min } from 'class-validator';
+import { ApiProperty } from "@nestjs/swagger";
+import { ArrayNotEmpty, IsNumber, Max, Min } from "class-validator";
 
 export class ProductBulkPriceDto {
-  @ApiProperty({ type: [String], example: ['65f1c2d3a4b5c6d7e8f90123'] })
+  @ApiProperty({ type: [String], example: ["65f1c2d3a4b5c6d7e8f90123"] })
   @ArrayNotEmpty()
   productIds!: string[];
 

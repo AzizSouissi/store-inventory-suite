@@ -1,4 +1,4 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 import {
   IsDateString,
   IsNotEmpty,
@@ -9,7 +9,7 @@ import {
 } from "class-validator";
 
 export class SaleCreateDto {
-  @ApiProperty({ example: '65f1c2d3a4b5c6d7e8f90123' })
+  @ApiProperty({ example: "65f1c2d3a4b5c6d7e8f90123" })
   @IsNotEmpty()
   productId!: string;
 
@@ -23,11 +23,11 @@ export class SaleCreateDto {
   @Min(0.01)
   unitPrice!: number;
 
-  @ApiProperty({ example: '2026-04-27T10:30:00.000Z', type: String })
+  @ApiProperty({ example: "2026-04-27T10:30:00.000Z", type: String })
   @IsDateString()
   saleDate!: string;
 
-  @ApiPropertyOptional({ example: 'Cash sale' })
+  @ApiPropertyOptional({ example: "Cash sale" })
   @IsOptional()
   @MaxLength(1000)
   note?: string | null;

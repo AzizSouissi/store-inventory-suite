@@ -1,12 +1,17 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsNotEmpty, IsNumber, IsOptional, Max, Min } from 'class-validator';
+import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
+import { IsNotEmpty, IsNumber, IsOptional, Max, Min } from "class-validator";
 
 export class CategoryUpdateDto {
-  @ApiProperty({ example: 'Beverages' })
+  @ApiProperty({ example: "Beverages" })
   @IsNotEmpty()
   name!: string;
 
-  @ApiPropertyOptional({ example: 25, type: Number, minimum: 0, maximum: 1000000 })
+  @ApiPropertyOptional({
+    example: 25,
+    type: Number,
+    minimum: 0,
+    maximum: 1000000,
+  })
   @IsOptional()
   @IsNumber()
   @Min(0)

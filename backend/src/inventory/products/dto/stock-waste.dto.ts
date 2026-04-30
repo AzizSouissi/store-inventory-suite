@@ -1,4 +1,4 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 import {
   IsNotEmpty,
   IsNumber,
@@ -9,7 +9,7 @@ import {
 import { StockMovementReason } from "../../enums/stock-movement-reason.enum";
 
 export class StockWasteDto {
-  @ApiProperty({ example: '65f1c2d3a4b5c6d7e8f90125' })
+  @ApiProperty({ example: "65f1c2d3a4b5c6d7e8f90125" })
   @IsNotEmpty()
   batchId!: string;
 
@@ -18,11 +18,14 @@ export class StockWasteDto {
   @Min(0.001)
   quantity!: number;
 
-  @ApiProperty({ enum: StockMovementReason, example: StockMovementReason.WASTE })
+  @ApiProperty({
+    enum: StockMovementReason,
+    example: StockMovementReason.WASTE,
+  })
   @IsNotEmpty()
   reason!: StockMovementReason;
 
-  @ApiPropertyOptional({ example: 'Expired on shelf' })
+  @ApiPropertyOptional({ example: "Expired on shelf" })
   @IsOptional()
   @MaxLength(1000)
   note?: string | null;

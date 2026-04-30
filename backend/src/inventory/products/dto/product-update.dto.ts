@@ -1,4 +1,4 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 import {
   IsNotEmpty,
   IsNumber,
@@ -6,25 +6,25 @@ import {
   Max,
   MaxLength,
   Min,
-} from 'class-validator';
-import { Unit } from '../../enums/unit.enum';
+} from "class-validator";
+import { Unit } from "../../enums/unit.enum";
 
 export class ProductUpdateDto {
-  @ApiProperty({ example: 'Coffee Beans 1kg' })
+  @ApiProperty({ example: "Coffee Beans 1kg" })
   @IsNotEmpty()
   @MaxLength(200)
   name!: string;
 
-  @ApiPropertyOptional({ example: '0123456789012' })
+  @ApiPropertyOptional({ example: "0123456789012" })
   @IsOptional()
   @MaxLength(128)
   barcode?: string | null;
 
-  @ApiProperty({ example: '65f1c2d3a4b5c6d7e8f90123' })
+  @ApiProperty({ example: "65f1c2d3a4b5c6d7e8f90123" })
   @IsNotEmpty()
   categoryId!: string;
 
-  @ApiProperty({ example: '65f1c2d3a4b5c6d7e8f90124' })
+  @ApiProperty({ example: "65f1c2d3a4b5c6d7e8f90124" })
   @IsNotEmpty()
   primarySupplierId!: string;
 
@@ -38,12 +38,12 @@ export class ProductUpdateDto {
   @IsNotEmpty()
   unit!: Unit;
 
-  @ApiPropertyOptional({ example: 'https://example.com/image.png' })
+  @ApiPropertyOptional({ example: "https://example.com/image.png" })
   @IsOptional()
   @MaxLength(2048)
   imageUrl?: string | null;
 
-  @ApiPropertyOptional({ example: 'Seasonal product' })
+  @ApiPropertyOptional({ example: "Seasonal product" })
   @IsOptional()
   @MaxLength(5000)
   notes?: string | null;
