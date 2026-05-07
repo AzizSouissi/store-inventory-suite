@@ -39,13 +39,13 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
   @Post()
-  @Roles(Role.ADMIN, Role.STAFF)
+  @Roles(Role.ADMIN)
   create(@Body() request: ProductCreateDto): Promise<ProductResponseDto> {
     return this.productsService.create(request);
   }
 
   @Put(":id")
-  @Roles(Role.ADMIN, Role.STAFF)
+  @Roles(Role.ADMIN)
   update(
     @Param("id") id: string,
     @Body() request: ProductUpdateDto,
@@ -72,7 +72,7 @@ export class ProductsController {
   }
 
   @Post(":id/stock/receive")
-  @Roles(Role.ADMIN, Role.STAFF)
+  @Roles(Role.ADMIN)
   receiveStock(
     @Param("id") id: string,
     @Body() request: StockReceiveDto,
@@ -83,7 +83,7 @@ export class ProductsController {
   }
 
   @Post(":id/stock/waste")
-  @Roles(Role.ADMIN, Role.STAFF)
+  @Roles(Role.ADMIN)
   wasteStock(
     @Param("id") id: string,
     @Body() request: StockWasteDto,
@@ -94,7 +94,7 @@ export class ProductsController {
   }
 
   @Post(":id/stock/adjust")
-  @Roles(Role.ADMIN, Role.STAFF)
+  @Roles(Role.ADMIN)
   adjustStock(
     @Param("id") id: string,
     @Body() request: StockAdjustDto,
@@ -174,7 +174,7 @@ export class ProductsController {
   }
 
   @Post(":id/alerts/snooze")
-  @Roles(Role.ADMIN, Role.STAFF)
+  @Roles(Role.ADMIN)
   async snoozeLowStock(
     @Param("id") id: string,
     @Query("days") days = "7",

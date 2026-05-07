@@ -23,13 +23,13 @@ export class CategoriesController {
   constructor(private readonly categoriesService: CategoriesService) {}
 
   @Post()
-  @Roles(Role.ADMIN, Role.STAFF)
+  @Roles(Role.ADMIN)
   create(@Body() request: CategoryCreateDto): Promise<CategoryResponseDto> {
     return this.categoriesService.create(request);
   }
 
   @Put(':id')
-  @Roles(Role.ADMIN, Role.STAFF)
+  @Roles(Role.ADMIN)
   update(
     @Param('id') id: string,
     @Body() request: CategoryUpdateDto,

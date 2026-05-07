@@ -24,7 +24,7 @@ export class ProductSuppliersController {
   ) {}
 
   @Post()
-  @Roles(Role.ADMIN, Role.STAFF)
+  @Roles(Role.ADMIN)
   upsert(
     @Param('productId') productId: string,
     @Body() request: ProductSupplierRequestDto,

@@ -30,6 +30,9 @@ import {
 import { Sale, SaleSchema } from "./schemas/sale.schema";
 import { SalesController } from "./sales/sales.controller";
 import { SalesService } from "./sales/sales.service";
+import { ActionRequest, ActionRequestSchema } from "./schemas/action-request.schema";
+import { RequestsController } from "./requests/requests.controller";
+import { RequestsService } from "./requests/requests.service";
 
 @Module({
   imports: [
@@ -45,6 +48,7 @@ import { SalesService } from "./sales/sales.service";
       { name: InventoryBatch.name, schema: InventoryBatchSchema },
       { name: StockMovement.name, schema: StockMovementSchema },
       { name: Sale.name, schema: SaleSchema },
+      { name: ActionRequest.name, schema: ActionRequestSchema },
     ]),
   ],
   controllers: [
@@ -53,6 +57,7 @@ import { SalesService } from "./sales/sales.service";
     SuppliersController,
     ProductSuppliersController,
     SalesController,
+    RequestsController,
   ],
   providers: [
     ProductsService,
@@ -60,6 +65,7 @@ import { SalesService } from "./sales/sales.service";
     SuppliersService,
     ProductSuppliersService,
     SalesService,
+    RequestsService,
   ],
 })
 export class InventoryModule {}

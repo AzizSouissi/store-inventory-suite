@@ -23,13 +23,13 @@ export class SuppliersController {
   constructor(private readonly suppliersService: SuppliersService) {}
 
   @Post()
-  @Roles(Role.ADMIN, Role.STAFF)
+  @Roles(Role.ADMIN)
   create(@Body() request: SupplierCreateDto): Promise<SupplierResponseDto> {
     return this.suppliersService.create(request);
   }
 
   @Put(':id')
-  @Roles(Role.ADMIN, Role.STAFF)
+  @Roles(Role.ADMIN)
   update(
     @Param('id') id: string,
     @Body() request: SupplierUpdateDto,
